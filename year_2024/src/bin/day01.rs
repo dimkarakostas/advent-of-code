@@ -1,4 +1,3 @@
-use std::io;
 use year_2024::{read_lines, count_lines_in_file};
 
 fn main() -> io::Result<()> {
@@ -11,11 +10,10 @@ fn main() -> io::Result<()> {
 
     if let Ok(lines) = read_lines(input_filename) {
         for line in lines.map_while(Result::ok) {
-            let parts = line.split(" ");
-            let collection = parts.collect::<Vec<&str>>();
-            let left_num = collection[0].parse::<i32>().unwrap();
+            let parts = line.split_whitespace().collect::<Vec<&str>>();
+            let left_num = parts[0].parse::<i32>().unwrap();
             first_col.push(left_num);
-            let right_num: i32 = collection[3].parse().unwrap();
+            let right_num: i32 = parts[1].parse().unwrap();
             second_col.push(right_num);
         }
     }
