@@ -1,3 +1,4 @@
+use std::io;
 use year_2024::{read_lines, count_lines_in_file};
 
 fn main() -> io::Result<()> {
