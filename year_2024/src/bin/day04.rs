@@ -1,3 +1,4 @@
+use std::time::Instant;
 use std::io;
 use year_2024::{read_lines, count_lines_in_file, count_first_line_length};
 
@@ -17,6 +18,7 @@ fn main() -> io::Result<()> {
         }
     }
 
+    let now = Instant::now();
     let mut xmas_count = 0;
     for x in 0..rows {
         for y in 0..cols {
@@ -49,8 +51,9 @@ fn main() -> io::Result<()> {
         }
     }
 
-    println!("Part 1: {}", xmas_count);
+    println!("Part 1: {} ({:.2?})", xmas_count, now.elapsed());
 
+    let now = Instant::now();
     let mut mas_count = 0;
     for x in 1..rows-1 {
         for y in 1..cols-1 {
@@ -71,7 +74,7 @@ fn main() -> io::Result<()> {
         }
     }
 
-    println!("Part 2: {}", mas_count);
+    println!("Part 2: {} ({:.2?})", mas_count, now.elapsed());
 
     Ok(())
 }

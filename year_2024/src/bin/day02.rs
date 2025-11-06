@@ -1,3 +1,4 @@
+use std::time::Instant;
 use year_2024::read_lines;
 
 fn check_safety(diffs: &Vec<i32>) -> bool {
@@ -21,6 +22,7 @@ fn compute_diffs(parts: &Vec<&str>) -> Vec<i32> {
 fn main() {
     let input_filename = "data/input02";
 
+    let now = Instant::now();
     let mut safe_reports = 0;
     let mut dampened_safe_reports = 0;
     if let Ok(lines) = read_lines(input_filename) {
@@ -49,6 +51,6 @@ fn main() {
         }
     }
 
-    println!("Part 1: {}", safe_reports);
-    println!("Part 2: {}", safe_reports + dampened_safe_reports);
+    println!("Part 1: {} ({:.2?})", safe_reports, now.elapsed());
+    println!("Part 2: {} ({:.2?})", safe_reports + dampened_safe_reports, now.elapsed());
 }

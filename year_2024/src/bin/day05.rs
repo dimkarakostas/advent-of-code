@@ -1,7 +1,7 @@
+use std::time::Instant;
 use std::io;
 use regex::Regex;
 use std::collections::HashMap;
-// use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 use year_2024::{read_lines};
 
@@ -21,6 +21,7 @@ fn main() -> io::Result<()> {
         }
     }
 
+    let now = Instant::now();
     let mut part_1_output: i32 = 0;
     let mut part_2_output: i32 = 0;
     if let Ok(lines) = read_lines(input_filename) {
@@ -82,8 +83,8 @@ fn main() -> io::Result<()> {
         }
     }
 
-    println!("Part 1: {}", part_1_output);
-    println!("Part 2: {}", part_2_output);
+    println!("Part 1: {} ({:.2?})", part_1_output, now.elapsed());
+    println!("Part 2: {} ({:.2?})", part_2_output, now.elapsed());
 
     Ok(())
 }
